@@ -50,3 +50,21 @@ text(0.5,1.05,"title")
 par(usr=op$usr,xpd=op$xpd)###############################
 points(rnorm(10,-4),rnorm(10,-4))
 ```
+
+### Multiple rows and columns
+
+```
+dev.size("in")
+par(mfrow=c(2,2),
+    mar=c(0.5,0.5,2,0.5),
+    mgp=c(2,1,0),
+    tcl=-0.25)
+for(temp in 1:4){
+  plot(c(-5,-3),c(-5,-3),type="l")
+  op<-par("usr","xpd");par(usr=c(0,1,0,1),xpd=TRUE)########
+  rect(0,1,1,1.1,col="gray80")
+  text(0.5,1.05,"title")
+  par(usr=op$usr,xpd=op$xpd)###############################
+  points(rnorm(10,-4),rnorm(10,-4))
+}
+```
