@@ -68,3 +68,16 @@ for(temp in 1:4){
   points(rnorm(10,-4),rnorm(10,-4))
 }
 ```
+
+### Use a function to calculate line height
+
+```
+plot(c(-5,-3),c(-5,-3),type="l")
+# title("Title", line = -1)
+op<-par("usr","xpd");par(usr=c(0,1,0,1),xpd=TRUE)########
+lineheight<-strheight("title")
+rect(0,1,1,1+2*lineheight,col="gray80")
+text(0.5,1+lineheight,"title")
+par(usr=op$usr,xpd=op$xpd)###############################
+points(rnorm(10,-4),rnorm(10,-4))
+```
