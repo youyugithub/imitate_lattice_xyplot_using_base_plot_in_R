@@ -81,3 +81,23 @@ text(0.5,1+lineheight,"title")
 par(usr=op$usr,xpd=op$xpd)###############################
 points(rnorm(10,-4),rnorm(10,-4))
 ```
+
+### use functions
+
+```
+add_col_title<-function(mytitle){
+  op<-par("usr","xpd","xlog","ylog")
+  par(usr=c(0,1,0,1),xpd=NA,xlog=FALSE,ylog=FALSE)
+  rect(0,1,1,1.1,col="gray90",border="gray")
+  text(0.5,1.05,mytitle)
+  par(usr=op$usr,xpd=op$xpd,xlog=op$xlog,ylog=op$ylog)
+}
+
+add_row_title<-function(mytitle){
+  op<-par("usr","xpd","xlog","ylog")
+  par(usr=c(0,1,0,1),xpd=NA,xlog=FALSE,ylog=FALSE)
+  rect(1,0,1.1,1,col="gray90",border="gray")
+  text(1.05,0.5,mytitle,srt=270)
+  par(usr=op$usr,xpd=op$xpd,xlog=op$xlog,ylog=op$ylog)
+}
+```
